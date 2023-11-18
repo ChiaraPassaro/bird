@@ -1,0 +1,89 @@
+:root {
+  --size-sprite: 50rem;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+button {
+  position: relative;
+  margin: auto;
+  padding: 1rem 3rem;
+  background-color: rgb(180, 56, 14);
+  border-radius: 2rem;
+  border: 0;
+  color: white;
+  font-size: 1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+button::after {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0.1rem;
+  left: 0.1rem;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 2rem;
+  filter: blur(0.1rem);
+  z-index: -1;
+}
+
+.bird {
+  position: absolute;
+  bottom: 2.2rem;
+  left: 0;
+  width: calc(var(--size-sprite) / 8);
+  height: 5rem;
+  background-image: url("../img/bird.svg");
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: var(--size-sprite);
+}
+
+.fly {
+  height: 9rem;
+  animation: fly 1.3s steps(3) 1;
+  animation-fill-mode: forwards;
+}
+
+.on-the-spot {
+  height: 9rem;
+  animation: flyOnTheSpot 1.3s steps(3) infinite;
+  background-position: calc(var(--size-sprite) / 8 * -3) 0;
+}
+
+.fly-down {
+  height: 9rem;
+  animation: flyDown 1.3s steps(2) 1;
+  background-position: calc(var(--size-sprite)/ 8 * -5) 0;
+}
+
+@keyframes fly {
+  100% { 
+    background-position: calc(var(--size-sprite) / 8 * -3) 0;
+  }
+}
+
+@keyframes flyOnTheSpot {
+  100% { 
+    background-position: calc(var(--size-sprite) / 8 * -6) 0; 
+  }
+}
+
+@keyframes flyDown {
+  100% { 
+    background-position: calc(var(--size-sprite) / 8 * -7) 0; 
+  }
+}
